@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>SAFE SCHOOL - Look for the Signs</title>
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+
+      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .signs-section {
+      position: relative;
+
+      width: 100%;
+
+      padding:
+        58px 0 64px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f7fcfd 0%,
+          #edf8fa 100%
+        );
+    }
+
+
+    /* =====================================================
+       DECORATIVE BACKGROUND
+    ===================================================== */
+
+    .signs-section::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: -130px;
+      right: -90px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(15, 163, 163, .06);
+
+      pointer-events: none;
+    }
+
+
+    .signs-section::after {
+      content: "";
+
+      position: absolute;
+
+      left: -6%;
+      right: -6%;
+
+      bottom: -115px;
+
+      height: 190px;
+
+      border-radius:
+        50% 50% 0 0 /
+        100% 100% 0 0;
+
+      background:
+        rgba(15, 163, 163, .07);
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
+
+    .signs-container {
+      position: relative;
+
+      z-index: 2;
+
+      width:
+        min(1380px, 92%);
+
+      margin:
+        0 auto;
+    }
+
+
+    /* =====================================================
+       HEADING
+    ===================================================== */
+
+    .signs-heading {
+      max-width: 800px;
+
+      margin:
+        0 auto 36px;
+
+      text-align: center;
+    }
+
+
+    .signs-eyebrow {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      margin-bottom: 8px;
+
+      color: #078f90;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .10em;
+
+      text-transform: uppercase;
+    }
+
+
+    .signs-eyebrow::before,
+    .signs-eyebrow::after {
+      content: "";
+
+      width: 42px;
+      height: 2px;
+
+      border-radius: 999px;
+
+      background: #0fa3a3;
+    }
+
+
+    .signs-heading h2 {
+      margin:
+        0 0 10px;
+
+      color: #071a4c;
+
+      font-size:
+        clamp(30px, 3.6vw, 44px);
+
+      font-weight: 800;
+
+      line-height: 1.15;
+    }
+
+
+    .signs-heading p {
+      max-width: 700px;
+
+      margin:
+        0 auto;
+
+      color: #61788f;
+
+      font-size: 15px;
+
+      line-height: 1.65;
+    }
+
+
+    /* =====================================================
+       4 CARD GRID
+    ===================================================== */
+
+    .signs-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 20px;
+
+      align-items: stretch;
+    }
+
+
+    /* =====================================================
+       CARD IMAGE
+    ===================================================== */
+
+    .sign-card {
+      min-width: 0;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-decoration: none;
+
+      transition:
+        transform .22s ease,
+        filter .22s ease;
+    }
+
+
+    .sign-card:hover {
+      transform:
+        translateY(-5px);
+
+      filter:
+        drop-shadow(
+          0 12px 18px
+          rgba(18, 53, 91, .12)
+        );
+    }
+
+
+    .sign-card img {
+      width: 100%;
+
+      height: auto;
+
+      object-fit: contain;
+
+      display: block;
+    }
+
+
+    /* =====================================================
+       SMALL MESSAGE
+    ===================================================== */
+
+    .signs-note {
+      margin-top: 30px;
+
+      text-align: center;
+
+      color: #0a8f90;
+
+      font-size: 14px;
+
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       TABLET
+       2 + 2
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .signs-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       1 COLUMN
+    ===================================================== */
+
+    @media (max-width: 520px) {
+
+      .signs-section {
+        padding:
+          46px 0 52px;
+      }
+
+
+      .signs-container {
+        width: 92%;
+      }
+
+
+      .signs-heading {
+        margin-bottom: 26px;
+      }
+
+
+      .signs-heading h2 {
+        font-size: 29px;
+      }
+
+
+      .signs-heading p {
+        font-size: 14px;
+      }
+
+
+      .signs-grid {
+        grid-template-columns:
+          1fr;
+
+        gap: 16px;
+      }
+
+
+      .sign-card {
+        width: 100%;
+
+        max-width: 360px;
+
+        justify-self: center;
+      }
+
+
+      .signs-note {
+        font-size: 13px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <section class="signs-section">
+
+
+    <div class="signs-container">
+
+
+      <!-- =====================================
+           HEADING
+      ====================================== -->
+
+      <div class="signs-heading">
+
+
+        <div class="signs-eyebrow">
+          Look for the signs
+        </div>
+
+
+        <h2>
+          Not every sign is visible.
+        </h2>
+
+
+        <p>
+          School violence can affect people in different ways.
+          Here are some common signs to look for.
+        </p>
+
+
+      </div>
+
+
+
+      <!-- =====================================
+           FOUR CARDS
+      ====================================== -->
+
+      <div class="signs-grid">
+
+
+        <!-- PHYSICAL SIGNS -->
+
+        <div class="sign-card">
+
+          <img
+            src="../../images/sign-physical.png"
+            alt="Physical signs"
+          >
+
+        </div>
+
+
+        <!-- EMOTIONAL SIGNS -->
+
+        <div class="sign-card">
+
+          <img
+            src="../../images/sign-emotional.png"
+            alt="Emotional signs"
+          >
+
+        </div>
+
+
+        <!-- SOCIAL SIGNS -->
+
+        <div class="sign-card">
+
+          <img
+            src="../../images/sign-social.png"
+            alt="Social signs"
+          >
+
+        </div>
+
+
+        <!-- ONLINE SIGNS -->
+
+        <div class="sign-card">
+
+          <img
+            src="../../images/sign-online.png"
+            alt="Online signs"
+          >
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- MESSAGE -->
+
+      <div class="signs-note">
+
+        Pay attention. Show you care.
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+</body>
+
+</html>
